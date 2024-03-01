@@ -26,8 +26,8 @@ function App() {
 
   return (
     <>
-  <h1 className="text-3xl text-blue-800 font-serif font-bold underline">
-      Hi this is siddhu from srikakulam
+  <h1 className="text-3xl text-blue-800 a font-serif font-bold underline">
+      Hi this is siddhu from srikakulam💙💘
     </h1>
       <NavBar />
       <Home/>
