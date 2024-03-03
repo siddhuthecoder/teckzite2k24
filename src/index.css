@@ -15,12 +15,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.custom-shape-1 {
-  @apply w-[200px] min-h-[200px];
-  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
-  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
-  background: white;
-}
 /* body{
   background-image: url('./009.gif');
   background-size: cover;

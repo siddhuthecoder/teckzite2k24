@@ -7,10 +7,10 @@ const WebTeamCard = () => {
     <>
     <div className="h-[800px] w-[300px]" onMouseEnter={()=>setIsHover(true)} onMouseLeave={()=>setIsHover(false)}>
     <div className="flex h-[500px] relative w-[300px]">
-        <div className={`absolute ${isHover ? "-translate-y-16" : "translate-y-16" } duration-[500ms] bottom-0 opacity-90 z-[-2] right-5 w-[150px] h-[250px] -skew-x-3 [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_25%,_75%_0)] bg-blue-500`}></div>
-        <div className={`absolute ${isHover ? "-translate-y-16" : "translate-y-16" } duration-[450ms] bottom-0 opacity-60 z-[-3] right-16 w-[150px] h-[320px] -skew-x-3 [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_18%,_60%_0)] bg-blue-500`}></div>
-        <div className={`absolute ${isHover ? "-translate-y-20" : "translate-y-12" } duration-[400ms] bottom-0 opacity-50 z-[-4] right-24 w-[150px] h-[270px] -skew-x-3 [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_20%,_65%_0)] bg-blue-500`}></div>
-        <div className={`absolute ${isHover ? "-translate-y-16" : "translate-y-16" } duration-[200ms] bottom-0 z-[-5] opacity-85 right-44 w-[100px] h-[150px] -skew-x-3 [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_25%,_75%_0)] bg-blue-500`}></div>      
+        <div className={`absolute ${isHover ? "h-[370px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_20%,_65%_0)]" : "h-[250px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_25%,_70%_0)]" } duration-[500ms] translate-y-16 bottom-0 opacity-90 z-[-2] right-5 w-[150px] -skew-x-3 bg-blue-500`}></div>
+        <div className={`absolute ${isHover ? "h-[450px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_65%_0)]" : "h-[360px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_65%_0)]" } duration-[450ms]  translate-y-16 bottom-0 opacity-60 z-[-3] right-16 w-[150px] -skew-x-3 bg-blue-500`}></div>
+        <div className={`absolute ${isHover ? "h-[420px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_60%_0)]" : "h-[320px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_65%_0)]" } duration-[400ms] translate-y-16 bottom-0 opacity-50 z-[-4] right-24 w-[150px] -skew-x-3 bg-blue-500`}></div>
+        <div className={`absolute ${isHover ? "h-[250px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_25%,_75%_0)]" : "h-[200px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_65%_0)]" } duration-[200ms] translate-y-16 bottom-0 z-[-5] opacity-85 right-44 w-[100px]  -skew-x-3 bg-blue-500`}></div>      
         <img src="./sid.png" className="absolute w-[50%] h-[50%] left-[25%] -bottom-7 z-[-1]" />
     </div>
     <div className="relative w-[300px] mt-[6px] h-[80px]">
@@ -26,3 +26,5 @@ const WebTeamCard = () => {
 }
 
 export default WebTeamCard
+
+//h-[250px] -skew-x-3 [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_25%,_75%_0)]
