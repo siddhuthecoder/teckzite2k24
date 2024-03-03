@@ -7,7 +7,7 @@
   font-weight: 400;
 
   color: rgba(255, 255, 255, 0.87);
-  /* background-color: #000000; */
+  background-color: #000143; 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,4 +15,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.custom-shape-1 {
+  @apply w-[200px] min-h-[200px];
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 25%, 75% 0);
+  background: white;
+}
+/* body{
+  background-image: url('./009.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+} */
 

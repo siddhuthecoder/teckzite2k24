@@ -1,8 +1,11 @@
 import Style from './Events.module.css'
+import EventsCards from './EventsCards'
 
 const Events = () => {
   return (
-    <div className={Style.error}>Events</div>
+    <div className={Style.error}>
+      <EventsCards />
+    </div>
   )
 }
 

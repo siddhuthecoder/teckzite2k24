@@ -21,17 +21,35 @@ import {
   // About,
 } from './pages'
 import { NavBar, Footer } from './components'
+import { useEffect, useRef, useState } from 'react'
+import EventsCards from './pages/Events/EventsCards'
+import SponsorsCard from './pages/Sponsors/SponsorsCard'
+import WebTeamCard from './pages/WebTeam/WebTeamCard'
 function App() {
   // const [count, setCount] = useState(0)
+  const vidRef = useRef(null)
+  const [isPlaying,setIsPlaying] = useState(false)
 
+  useEffect(()=>{
+    setIsPlaying(true);
+  },[])
   return (
     <>
-  <h1 className="text-3xl text-blue-800 a font-serif font-bold underline">
+  {/* <div className="fixed top-0 left-0 w-screen h-screen z-[-1]">
+  <video ref={vidRef} autoPlay muted loop className="object-cover">
+    <source src="./test.mov" />
+    Your browser does not support the video tag.
+  </video>
+</div>
+  {isPlaying && <>
+    <h1 className="text-3xl text-blue-800 a font-serif font-bold underline">
       Hi this is siddhu from srikakulam💙💘
     </h1>
       <NavBar />
       <Home/>
       <Footer />
+  </>} */}
+    <EventsCards />
     </>
   )
 }
