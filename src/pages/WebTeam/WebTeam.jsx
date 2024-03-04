@@ -1,17 +1,17 @@
 import Style from './WebTeam.module.css'
-import WebTeamCard from './WebTeamCard'
+import TeamCard from '../../components/Shared/TeamCard'
 
 const WebTeam = () => {
   return (
     <div>
       <div className="flex justify-center">
-        <WebTeamCard />
+        <TeamCard />
       </div>
       <div className="flex flex-wrap max-sm:justify-center justify-between">
-        <WebTeamCard />
-        <WebTeamCard />
-        <WebTeamCard />
-        <WebTeamCard />
+        <TeamCard />
+        <TeamCard />
+        <TeamCard />
+        <TeamCard />
       </div>
     </div>
   )

@@ -1,11 +1,16 @@
+import ETWSCard from "../../components/Shared/ETWSCard";
 import Style from "./Events.module.css";
-import EventsCards from "./EventsCards";
-
 const Events = () => {
   return (
     <>
-      <div className="">
-        <EventsCards />
+    <h1>events</h1>
+      <div className="flex flex-wrap max-sm:justify-center max-xl:justify-around justify-between">
+        <ETWSCard />
+        <ETWSCard />
+        <ETWSCard />
+        <ETWSCard />
+        <ETWSCard />
+        
       </div>
     </>
   );

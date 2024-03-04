@@ -4,9 +4,11 @@
 // import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import {
+  CoreTeam,
   Events,
   Home,
   WebTeam,
+  Workshops,
   // Events,
   // Workshops,
   // EventUpdates,
@@ -24,10 +26,6 @@ import {
 } from './pages'
 import { NavBar, Footer } from './components'
 import { useEffect, useRef, useState } from 'react'
-import EventsCards from './pages/Events/EventsCards'
-import SponsorsCard from './pages/Sponsors/SponsorsCard'
-import WebTeamCard from './pages/WebTeam/WebTeamCard'
-import EventDetailsCard from './pages/EventDetails/EventDetailsCard'
 import AnimatedCursor from 'react-animated-cursor'
 function App() {
   // const [count, setCount] = useState(0)
@@ -53,7 +51,7 @@ function App() {
       <Home/>
       <Footer />
   </>} */}
-    <EventsCards />
+    <WebTeam />
     <AnimatedCursor
   innerSize={8}
   outerSize={35}
@@ -61,6 +59,7 @@ function App() {
   outerScale={2}
   outerAlpha={0}
   hasBlendMode={true}
+  showSystemCursor={true}
   innerStyle={{
     backgroundColor: 'red'
   }}

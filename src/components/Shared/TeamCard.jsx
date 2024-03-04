@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import "./WebTeam.module.css"
 
-const WebTeamCard = () => {
+
+const TeamCard = () => {
   const [isHover,setIsHover] = useState(false)
   return (
     <>
@@ -25,6 +25,6 @@ const WebTeamCard = () => {
   )
 }
 
-export default WebTeamCard
+export default TeamCard
 
 //h-[250px] -skew-x-3 [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_25%,_75%_0)]
