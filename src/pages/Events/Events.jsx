@@ -1,12 +1,14 @@
-import Style from './Events.module.css'
-import EventsCards from './EventsCards'
+import Style from "./Events.module.css";
+import EventsCards from "./EventsCards";
 
 const Events = () => {
   return (
-    <div className={Style.error}>
-      <EventsCards />
-    </div>
-  )
-}
+    <>
+      <div className="">
+        <EventsCards />
+      </div>
+    </>
+  );
+};
 
-export default Events
+export default Events;

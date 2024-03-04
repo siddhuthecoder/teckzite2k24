@@ -1,6 +1,8 @@
 import React, { useRef, useState } from 'react'
+import useSound from 'use-sound'
 
 const EventsCards = () => {
+  const [play] = useSound("./click.wav")
   const [isHover,setIsHover] = useState(false)
   return (
     <div className="relative mt-5 w-64 cursor-pointer" onMouseLeave={()=>{setIsHover(false)}}>
@@ -9,7 +11,7 @@ const EventsCards = () => {
         <h2 className="font-bold text-2xl w-[88%] m-auto">eventname</h2>
         <p className="text-base w-[88%] m-auto">about event</p>
         <div className="relative min-h-[30px] text-center flex w-full">
-            <button className={`absolute border-2 p-1 rounded-xl hover:bg-[#1f22e4] border-[#4c4ff4] left-8 ${isHover?"visible -bottom-5 ease-in duration-200":"hidden -bottom-6"} `}>Button 1</button>
+            <button onClick={play} className={`absolute border-2 p-1 rounded-xl hover:bg-[#1f22e4] border-[#4c4ff4] left-8 ${isHover?"visible -bottom-5 ease-in duration-200":"hidden -bottom-6"} `}>Button 1</button>
             <button className={`absolute border-2 p-1 rounded-xl hover:bg-[#1f22e4] border-[#4c4ff4] right-9 ${isHover?"visible -bottom-5 ease-in duration-200":"hidden -bottom-6"}`}> Button 2 </button>
         </div>
     </div>

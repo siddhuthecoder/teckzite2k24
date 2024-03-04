@@ -4,7 +4,9 @@
 // import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import {
+  Events,
   Home,
+  WebTeam,
   // Events,
   // Workshops,
   // EventUpdates,
@@ -26,6 +28,7 @@ import EventsCards from './pages/Events/EventsCards'
 import SponsorsCard from './pages/Sponsors/SponsorsCard'
 import WebTeamCard from './pages/WebTeam/WebTeamCard'
 import EventDetailsCard from './pages/EventDetails/EventDetailsCard'
+import AnimatedCursor from 'react-animated-cursor'
 function App() {
   // const [count, setCount] = useState(0)
   const vidRef = useRef(null)
@@ -50,7 +53,21 @@ function App() {
       <Home/>
       <Footer />
   </>} */}
-    <WebTeamCard />
+    <EventsCards />
+    <AnimatedCursor
+  innerSize={8}
+  outerSize={35}
+  innerScale={1}
+  outerScale={2}
+  outerAlpha={0}
+  hasBlendMode={true}
+  innerStyle={{
+    backgroundColor: 'red'
+  }}
+  outerStyle={{
+    border: '3px solid red',
+  }}
+/>
     </>
   )
 }
