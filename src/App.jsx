@@ -52,6 +52,9 @@ function App() {
       <Footer />
   </>} */}
     <WebTeam />
+    <CoreTeam/>
+    <Events/>
+    <Workshops/>
     <AnimatedCursor
   innerSize={8}
   outerSize={35}
