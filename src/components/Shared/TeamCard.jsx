@@ -11,7 +11,7 @@ const TeamCard = () => {
         <div className={`absolute ${isHover ? "h-[450px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_65%_0)]" : "h-[360px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_65%_0)]" } duration-[450ms]  translate-y-16 bottom-0 opacity-60 z-[-3] right-5 w-[150px] -skew-x-3 bg-blue-500`}></div>
         <div className={`absolute ${isHover ? "h-[420px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_60%_0)]" : "h-[320px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_65%_0)]" } duration-[400ms] translate-y-16 bottom-0 opacity-50 z-[-4] right-14 w-[150px] -skew-x-3 bg-blue-500`}></div>
         <div className={`absolute ${isHover ? "h-[250px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_25%,_75%_0)]" : "h-[200px] [clip-path:polygon(0_0,_0_100%,_100%_100%,_100%_15%,_65%_0)]" } duration-[200ms] translate-y-16 bottom-0 z-[-5] opacity-85 right-36 w-[100px]  -skew-x-3 bg-blue-500`}></div>      
-        <img src="./sid.png" className="absolute w-[50%] h-[50%] left-[25%] -bottom-7 z-[-1]" />
+        <img src="./sid2.png" className="absolute w-[100%] h-[50%] left-[5%] -bottom-7 z-[-1]" />
     </div>
     <div className="relative w-[240px] mt-[6px] h-[80px]">
         <div className="absolute bottom-0 -left-1 w-[20px] z-[-2] opacity-80 bg-slate-100 h-[60px] -skew-x-[17deg]"></div>
