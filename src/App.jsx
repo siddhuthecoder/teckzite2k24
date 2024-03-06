@@ -23,7 +23,10 @@ import {
 } from "./pages";
 // import { NavBar, Footer } from "./components";
 // import { useEffect, useRef, useState } from "react";
-import AnimatedCursor from "react-animated-cursor";
+// import AnimatedCursor from "react-animated-cursor";
+
+import GoUpBtn from "./components/GoUpBtn";
+
 function App() {
   // const [count, setCount] = useState(0)
   // const vidRef = useRef(null);
@@ -64,6 +67,8 @@ function App() {
           border: "3px solid red",
         }}
       /> */}
+
+      <GoUpBtn />
 
       <Routes>
         <Route path="/" element={<Home />} />
