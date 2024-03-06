@@ -1,10 +1,12 @@
-
-import Style from './home.module.css';
+import Button from "../../components/Button";
+// import Style from "./home.module.css";
 
 const Home = () => {
   return (
-    <div className={Style.error}>home</div>
+    <>
+      <Button text="Home" />
+    </>
   );
-}
+};
 
 export default Home;

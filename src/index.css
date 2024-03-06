@@ -7,7 +7,7 @@
   font-weight: 400;
 
   color: rgba(255, 255, 255, 0.87);
-  background-color: #000143; 
+  background-color: #000143;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,3 +24,24 @@
   padding: 0;
 } */
 
+.bg-gradient {
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(249, 12, 255),
+    rgb(224, 39, 255),
+    rgb(197, 52, 255),
+    rgb(169, 62, 255),
+    rgb(138, 68, 255),
+    rgb(101, 96, 255),
+    rgb(60, 115, 255),
+    rgb(0, 129, 255),
+    rgb(0, 156, 255),
+    rgb(0, 179, 255),
+    rgb(0, 198, 245),
+    rgb(12, 215, 232)
+  );
+}
+
+.design_btn {
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 35%, 90% 0%);
+}
