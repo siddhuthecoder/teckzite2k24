@@ -1,6 +1,5 @@
 
-import test from '../assets/webteam/test.png';
-
+import test from '../assets/webteam/sid.png';
 
 
 export const WebTeamCard = [
