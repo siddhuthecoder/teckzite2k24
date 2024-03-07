@@ -15,5 +15,5 @@ const CoreTeam = () => {
     </div>
   )
 }
-
+// jhbsdj
 export default CoreTeam
