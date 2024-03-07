@@ -7,6 +7,10 @@ export default {
       colors: {
         primary: "rgb(152, 65, 255)",
       },
+      fontFamily: {
+        namdhinggo: ["Namdhinggo", "sans-serif"],
+        koneMono: ["Kode Mono", "monospace"],
+      },
     },
   },
   plugins: [],

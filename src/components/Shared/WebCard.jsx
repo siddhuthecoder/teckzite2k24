@@ -2,7 +2,7 @@
 const webCard = ({ img, name, role }) => {
   return (
     <>
-      <div className="team-item w-[95%] max-w-[280px] mx-auto">
+      <div className="team-item mb-5 w-[95%] max-w-[280px] mx-auto">
         <div className="team-thumb relative">
           <img src={img} alt="thumb" />
           <div
@@ -16,7 +16,7 @@ const webCard = ({ img, name, role }) => {
           </div>
         </div>
         <div className="team-content">
-          <span className="whte-shape"></span>
+          <span className="white-shape"></span>
           <h3 className="text-lg">{name}</h3>
           <h4>{role}</h4>
         </div>
