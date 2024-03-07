@@ -58,7 +58,7 @@ export const WebTeamCard = [
     id: 4,
     name: "Hemanth",
     role: "Web Developer",
-    img: team,
+    img: team1,
   },
 ];
 
@@ -86,7 +86,7 @@ export const CoreTeamData = [
     id: 4,
     name: "Siddhu From Srikakulam",
     role: "Web Developer",
-    img: test,
+    img: team1,
   },
   {
     id: 5,
