@@ -4,13 +4,14 @@ import { VscThreeBars } from "react-icons/vsc";
 import { navigation } from "../../constants";
 import Navbar from "./Navbar";
 import { useState } from "react";
+import './Header.css';
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   return (
     <>
       <header
-        className="header z-[1000] border-[0.1px] border-zinc-400"
+        className="header z-[1000] border-[0.1px] border-zinc-400  sha"
         style={{ position: "fixed" }}
       >
         <Link to="/">
