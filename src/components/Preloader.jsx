@@ -6,7 +6,7 @@ const Preloader = () => {
         autoPlay
         muted
         playsInline
-        poster="../../favicon.png"
+        // poster="../../favicon.png"
       >
         <source src="../../preloader.mp4" type="video/mp4" />
       </video>

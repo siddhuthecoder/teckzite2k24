@@ -25,7 +25,7 @@ import { GoUpBtn, BackgroundGIF, Preloader } from "./components";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 5000);
@@ -53,7 +53,7 @@ function App() {
       ) : (
         <main className="animate-show">
           <GoUpBtn />
-          <BackgroundGIF />
+          {/* <BackgroundGIF /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/events" element={<Events />} />

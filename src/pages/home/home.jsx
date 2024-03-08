@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <main
       className="w-full min-h-screen bg-cover bg-center bg-fixed"
-      // style={{ backgroundImage: "url('../../../home.jpg')" }}
+      style={{ backgroundImage: "url('../../../home.png')" }}
     >
       <Header />
       <div className="pt-24 flex items-center justify-center">
