@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/react.svg";
+import logo from "../../assets/logo.png";
 import { VscThreeBars } from "react-icons/vsc";
 import { navigation } from "../../constants";
 import Navbar from "./Navbar";
@@ -9,7 +9,10 @@ const Header = () => {
   const [showNav, setShowNav] = useState(false);
   return (
     <>
-      <header className="header z-[1000]" style={{ position: "fixed" }}>
+      <header
+        className="header z-[1000] border-[0.1px] border-zinc-400"
+        style={{ position: "fixed" }}
+      >
         <Link to="/">
           <img src={logo} alt="logo" className="h-8" />
         </Link>

@@ -20,37 +20,19 @@ import {
   // Schedule,
   // About,
 } from "./pages";
-// import { NavBar, Footer } from "./components";
-// import { useEffect, useRef, useState } from "react";
-// import AnimatedCursor from "react-animated-cursor";
 
-import GoUpBtn from "./components/GoUpBtn";
+import { GoUpBtn, BackgroundGIF, Preloader } from "./components";
+import { useEffect, useState } from "react";
 
 function App() {
-  // const [count, setCount] = useState(0)
-  // const vidRef = useRef(null);
-  // const [isPlaying, setIsPlaying] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   setIsPlaying(true);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 5000);
+  }, []);
+
   return (
     <>
-      {/* <div className="fixed top-0 left-0 w-screen h-screen z-[-1]">
-  <video ref={vidRef} autoPlay muted loop className="object-cover">
-    <source src="./test.mov" />
-    Your browser does not support the video tag.
-  </video>
-</div>
-  {isPlaying && <>
-    <h1 className="text-3xl text-blue-800 a font-serif font-bold underline">
-      Hi this is siddhu from srikakulam💙💘
-    </h1>
-      <NavBar />
-      <Home/>
-      <Footer />
-  </>} */}
-
       {/* <AnimatedCursor
         innerSize={8}
         outerSize={35}
@@ -66,16 +48,21 @@ function App() {
           border: "3px solid red",
         }}
       /> */}
-
-      <GoUpBtn />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/workshops" element={<Workshops />} />
-        <Route path="/coreteam" element={<CoreTeam />} />
-        <Route path="/webteam" element={<WebTeam />} />
-      </Routes>
+      {loading ? (
+        <Preloader />
+      ) : (
+        <main className="animate-show">
+          <GoUpBtn />
+          <BackgroundGIF />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/workshops" element={<Workshops />} />
+            <Route path="/coreteam" element={<CoreTeam />} />
+            <Route path="/webteam" element={<WebTeam />} />
+          </Routes>
+        </main>
+      )}
     </>
   );
 }
