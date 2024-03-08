@@ -53,7 +53,7 @@ function App() {
       ) : (
         <main className="animate-show">
           <GoUpBtn />
-          {/* <BackgroundGIF /> */}
+          <BackgroundGIF />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/events" element={<Events />} />
