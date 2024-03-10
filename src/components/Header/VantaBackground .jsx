@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
-import RINGS from "vanta/dist/vanta.rings.min";
+import DOTS from "vanta/dist/vanta.dots.min";
 
 const VantaBackground = () => {
   const ringsRef = useRef(null);
@@ -8,7 +8,7 @@ const VantaBackground = () => {
   useEffect(() => {
     if (ringsRef.current) {
       // Initialize Vanta.js rings effect
-      const vantaEffect = RINGS({
+      const vantaEffect = DOTS({
         el: ringsRef.current,
         THREE: THREE,
         mouseControls: true,
@@ -18,8 +18,8 @@ const VantaBackground = () => {
         minWidth: 200.0,
         scale: 1.0,
         scaleMobile: 1.0,
-        color: 0x000000,
-        backgroundColor: 0x222222,
+        color: 0xf120ff,
+        showLines: false,
       });
 
       // Clean up function

@@ -26,16 +26,9 @@ export const navigation = [
     name: "About",
     link: "/about",
   },
-  {
-    id: 6,
-    name: "Events",
-    link: "/events",
-  },
 ];
 
-
 export const WebTeamCard = [
-
   {
     id: 1,
     name: "Aswini Kodati",
@@ -63,7 +56,6 @@ export const WebTeamCard = [
 ];
 
 export const CoreTeamData = [
-
   {
     id: 1,
     name: "Siddhu From Srikakulam",

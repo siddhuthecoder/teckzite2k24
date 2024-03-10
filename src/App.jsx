@@ -1,20 +1,17 @@
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import {
   CoreTeam,
   Events,
   Home,
+  Register,
   WebTeam,
   Workshops,
-  // Events,
-  // Workshops,
   // EventUpdates,
   // WorkshopsDetails,
   // EventDetails,
   // Profile,
   // Referrals,
-  // Register,
-  // CoreTeam,
-  // WebTeam,
   // Speakers,
   // Sponsors,
   // Schedule,
@@ -51,17 +48,21 @@ function App() {
       {loading ? (
         <Preloader />
       ) : (
-        <main className="animate-show">
-          <GoUpBtn />
-          <BackgroundGIF />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/workshops" element={<Workshops />} />
-            <Route path="/coreteam" element={<CoreTeam />} />
-            <Route path="/webteam" element={<WebTeam />} />
-          </Routes>
-        </main>
+        <>
+          <Toaster />
+          <main className="animate-show">
+            <GoUpBtn />
+            <BackgroundGIF />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/events" element={<Events />} />
+              <Route path="/workshops" element={<Workshops />} />
+              <Route path="/coreteam" element={<CoreTeam />} />
+              <Route path="/webteam" element={<WebTeam />} />
+              <Route path="/register" element={<Register />} />
+            </Routes>
+          </main>
+        </>
       )}
     </>
   );

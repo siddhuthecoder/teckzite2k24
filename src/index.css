@@ -50,6 +50,24 @@
   @apply absolute w-[95%] max-w-[1000px] mx-auto top-5 left-1/2 transform -translate-x-1/2 py-3 px-10 rounded-full flex items-center justify-between backdrop-filter backdrop-blur-sm  bg-opacity-20 bg-black bg-clip-padding backdrop-saturate-100;
 }
 
+.text_input {
+  border-bottom: 1px solid white;
+}
+
+.text_input:focus {
+  border-color: transparent;
+  border-bottom-color: #eee;
+  outline: none;
+}
+
+.text_input::placeholder {
+  color: #eee;
+}
+
+select option {
+  background-color: #000143;
+}
+
 .animate-fade {
   animation: fade 0.6s ease-in-out;
 }

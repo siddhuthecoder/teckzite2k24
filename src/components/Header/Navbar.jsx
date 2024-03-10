@@ -50,6 +50,23 @@ const Navbar = ({ setShowNav }) => {
             </li>
           );
         })}
+        <li className="odd:mt-16 nav_heading">
+          <Link
+            to="/register"
+            className="flex flex-col gap-0 items-center justify-center hover:scale-125 cursor-pointer h-[auto]"
+          >
+            <h1 className="text-2xl text-nowrap font-koneMono h-2 relative">
+              Register
+            </h1>
+            <img
+              src={nav_img}
+              alt="nav image"
+              width={60}
+              height={42}
+              className="mt-0 h-[auto] max-w-[100%]"
+            />
+          </Link>
+        </li>
       </ul>
       <ul className="animate-fade flex flex-col md:hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-h-full items-start justify-center">
         {navigation.map((nav) => {
