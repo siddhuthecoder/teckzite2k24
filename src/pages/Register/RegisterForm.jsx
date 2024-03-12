@@ -1,4 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
@@ -11,15 +12,18 @@ const RegisterForm = () => {
     gender: "",
     phoneNumber: "",
     idNumber: "",
-    countries: "",
+    state: "",
+    district: "",
+    city: "",
+    file: "",
+    img: "",
+    terms: false,
   };
   const [data, setData] = useState(initialData);
-  const [signIn, setSignIn] = useState(true);
-  const [next, setNext] = useState(true);
+  const [signIn, setSignIn] = useState(false);
+  const [next, setNext] = useState(false);
   const [error, setError] = useState(null);
-  const [states, setStates] = useState([]);
-  const [districts, setDistricts] = useState([]);
-  const [cities, setCities] = useState([]);
+  const [isRgukt, setIsRgukt] = useState(false);
 
   useEffect(() => {
     if (error) {
@@ -29,63 +33,30 @@ const RegisterForm = () => {
     }
   }, [error]);
 
-  useEffect(() => {
-    fetchStates();
-  }, []);
-
-  const fetchStates = async () => {
-    try {
-      const response = await fetch(
-        "https://api.covid19india.org/state_district_wise.json"
-      );
-      const data = await response.json();
-      const statesData = Object.keys(data).map((state) => state);
-      setStates(statesData);
-    } catch (error) {
-      console.error("Error fetching states:", error);
-      toast.error("Error fetching states");
-    }
-  };
-
-  const fetchDistricts = async (state) => {
-    try {
-      const response = await fetch(
-        "https://api.covid19india.org/state_district_wise.json"
-      );
-      const data = await response.json();
-      const districtsData = Object.keys(data[state].districtData).map(
-        (district) => district
-      );
-      setDistricts(districtsData);
-    } catch (error) {
-      console.error("Error fetching districts:", error);
-      toast.error("Error fetching districts");
-    }
-  };
-
-  const fetchCities = async (state, district) => {
-    try {
-      const response = await fetch(
-        "https://api.covid19india.org/state_district_wise.json"
-      );
-      const data = await response.json();
-      const citiesData = Object.keys(data[state].districtData[district].cities)
-        .map((city) => data[state].districtData[district].cities[city])
-        .flat();
-      setCities(citiesData);
-    } catch (error) {
-      console.error("Error fetching cities:", error);
-      toast.error("Error fetching cities");
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (data.state === "" || data.district === "" || data.city === "") {
+      setError("All fields are required");
+      return;
+    }
+
+    if (isRgukt && data.file === "") {
+      setError("Upload id proof");
+      return;
+    }
+
+    if (!data.terms) {
+      setError("Please accept the Terms and Conditions");
+      return;
+    }
+
     // Handle form submission
   };
 
   const handleNext = (e) => {
     e.preventDefault();
+    console.log(data);
     if (
       data.firstName === "" ||
       data.lastName === "" ||
@@ -114,24 +85,38 @@ const RegisterForm = () => {
 
   const onSuccess = async (res) => {
     console.log(res);
-    const { given_name, family_name, email, picture } = res.profileObj;
-    setData({
-      ...data,
-      firstName: given_name,
-      lastName: family_name,
-      email,
-      img: picture,
-    });
+    const decodedUser = jwtDecode(res.credential);
+    const { given_name, family_name, email, picture } = decodedUser;
+    const domainPattern = /@(rguktn|rgukto|rgukts|rguktr)\.ac\.in$/;
+
+    if (domainPattern.test(email)) {
+      setData({
+        ...data,
+        idNumber: given_name,
+        firstName: family_name.split(" ").slice(1).join(" ").toLowerCase(),
+        lastName: family_name.split(" ")[0].toLowerCase(),
+      });
+      setIsRgukt(true);
+    } else {
+      setData({
+        ...data,
+        firstName: given_name,
+        lastName: family_name,
+        email,
+        img: picture,
+      });
+    }
     setSignIn(true);
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData({ ...data, [name]: value });
+    const { name, value, type, checked } = e.target;
+    const newValue = type === "checkbox" ? checked : value;
+    setData({ ...data, [name]: newValue });
   };
 
   return (
-    <section className="z-30 w-full">
+    <section className="z-30 w-full pt-[100px] pb-[20px]">
       <form
         onSubmit={handleSubmit}
         className="w-[90%] max-w-[380px] mx-auto mb-5 border border-primary rounded-md backdrop-filter backdrop-blur-lg px-3 py-2 flex justify-center items-center"
@@ -239,6 +224,7 @@ const RegisterForm = () => {
                       type="radio"
                       value="male"
                       name="gender"
+                      checked={data.gender === "male"}
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300"
                       onChange={handleChange}
                     />
@@ -255,6 +241,7 @@ const RegisterForm = () => {
                       type="radio"
                       value="female"
                       name="gender"
+                      checked={data.gender === "female"}
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300"
                       onChange={handleChange}
                     />
@@ -271,6 +258,7 @@ const RegisterForm = () => {
                       type="radio"
                       value="others"
                       name="gender"
+                      checked={data.gender === "others"}
                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300"
                       onChange={handleChange}
                     />
@@ -286,90 +274,64 @@ const RegisterForm = () => {
             )}
             {next && (
               <>
-                <div className="mb-3 w-[90%]">
-                  <select
+                <div className="mb-3 w-[90%] grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
                     id="state"
                     name="state"
                     value={data.state}
-                    onChange={(e) => {
-                      handleChange(e);
-                      fetchDistricts(e.target.value);
-                    }}
+                    onChange={handleChange}
+                    placeholder="State"
                     className="bg-transparent text_input text-base focus:ring-transparent focus:border-transparent block w-full px-1 py-2 text-[#eee]"
                     style={{ borderBottom: "1px solid #eee" }}
-                  >
-                    <option value="">--Select State--</option>
-                    {states.map((state) => (
-                      <option key={state} value={state}>
-                        {state}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                {districts.length > 0 && (
-                  <div className="mb-3 w-[90%]">
-                    <select
-                      id="district"
-                      name="district"
-                      value={data.district}
-                      onChange={(e) => {
-                        handleChange(e);
-                        fetchCities(data.state, e.target.value);
-                      }}
-                      className="bg-transparent text_input text-base focus:ring-transparent focus:border-transparent block w-full px-1 py-2 text-[#eee]"
-                      style={{ borderBottom: "1px solid #eee" }}
-                    >
-                      <option value="">--Select District--</option>
-                      {districts.map((district) => (
-                        <option key={district} value={district}>
-                          {district}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-                {cities.length > 0 && (
-                  <div className="mb-3 w-[90%]">
-                    <select
-                      id="city"
-                      name="city"
-                      value={data.city}
-                      onChange={handleChange}
-                      className="bg-transparent text_input text-base focus:ring-transparent focus:border-transparent block w-full px-1 py-2 text-[#eee]"
-                      style={{ borderBottom: "1px solid #eee" }}
-                    >
-                      <option value="">--Select City--</option>
-                      {cities.map((city) => (
-                        <option key={city} value={city}>
-                          {city}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-                <div className="my-3 w-[90%]">
-                  <label
-                    className="block mb-1 text-sm font-medium text-[#eee]"
-                    htmlFor="file_input"
-                  >
-                    Upload Id Card
-                  </label>
+                  />
                   <input
-                    className="block w-full text-sm text-white border border-[#eee] rounded-sm cursor-pointer bg-transparent"
-                    id="file_input"
-                    type="file"
+                    id="district"
+                    name="district"
+                    value={data.district}
+                    onChange={handleChange}
+                    placeholder="District"
+                    className="bg-transparent text_input text-base focus:ring-transparent focus:border-transparent block w-full px-1 py-2 text-[#eee]"
+                    style={{ borderBottom: "1px solid #eee" }}
                   />
                 </div>
+                <div className="mb-3 w-[90%]">
+                  <input
+                    id="city"
+                    name="city"
+                    value={data.city}
+                    onChange={handleChange}
+                    placeholder="Village / Town / City"
+                    className="bg-transparent text_input text-base focus:ring-transparent focus:border-transparent block w-full px-1 py-2 text-[#eee]"
+                    style={{ borderBottom: "1px solid #eee" }}
+                  />
+                </div>
+                {!isRgukt && (
+                  <div className="my-3 w-[90%]">
+                    <label
+                      className="block mb-1 text-sm font-medium text-[#eee]"
+                      htmlFor="file_input"
+                    >
+                      Upload Id Card
+                    </label>
+                    <input
+                      className="block w-full text-sm text-white border border-[#eee] rounded-sm cursor-pointer bg-transparent"
+                      id="file_input"
+                      type="file"
+                    />
+                  </div>
+                )}
                 <div className="flex items-center my-3 w-[90%] justify-start">
                   <input
                     id="terms"
                     type="checkbox"
-                    value="terms"
+                    value={data.terms}
+                    name="terms"
                     className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                    onChange={handleChange}
                   />
                   <label
                     htmlFor="terms"
-                    className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    className="ms-2 text-sm font-medium text-[#eee]"
                   >
                     Accept Terms and Conditions
                   </label>
@@ -377,14 +339,36 @@ const RegisterForm = () => {
               </>
             )}
             {error && <div className="w-[90%]">{error}</div>}
-            <div className="w-[90%] mt-2 flex justify-end">
-              <button
-                type="button"
-                className="text-white bg-[rgba(152,65,255,0.8)] hover:bg-primary font-medium rounded-md text-base px-6 py-1.5 me-2 mb-2"
-                onClick={handleNext}
-              >
-                Next
-              </button>
+            <div className="w-[90%] mt-2 flex items-end justify-between">
+              {!next && (
+                <>
+                  <div></div>
+                  <button
+                    type="button"
+                    className="text-white bg-[rgba(152,65,255,0.8)] hover:bg-primary font-medium rounded-md text-base px-6 py-1.5 me-2 mb-2"
+                    onClick={handleNext}
+                  >
+                    Next
+                  </button>
+                </>
+              )}
+              {next && (
+                <>
+                  <button
+                    type="button"
+                    className="text-white bg-[rgba(152,65,255,0.8)] hover:bg-primary font-medium rounded-md text-base px-6 py-1.5 me-2 mb-2"
+                    onClick={() => setNext(false)}
+                  >
+                    Prev
+                  </button>
+                  <button
+                    type="submit"
+                    className="text-white bg-green-600 hover:bg-green-700 font-medium rounded-md text-base px-6 py-1.5 me-2 mb-2"
+                  >
+                    Submit
+                  </button>
+                </>
+              )}
             </div>
           </div>
         )}
