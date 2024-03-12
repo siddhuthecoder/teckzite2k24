@@ -1,11 +1,10 @@
 import { navigation } from "../../constants";
-import nav_img from "../../assets/nav_img.webp";
-import nav_img_sm from "../../assets/nav_img_sm.webp";
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import VantaBackground from "./VantaBackground ";
 import logo from "../../assets/logo.png";
 import Glasses from '../../assets/navbar/vr_glasses.png'
+import { motion } from 'framer-motion'
 
 //eslint-disable-next-line
 const Navbar = ({ setShowNav }) => {
@@ -63,17 +62,19 @@ const Navbar = ({ setShowNav }) => {
             <img
               src={Glasses}
               alt="nav image"
-              // width={60}
-              // height={42}
               className="mt-0 h-[auto] max-w-[100%]"
             />
           </Link>
         </li>
       </ul>
-      <ul className="animate-fade flex flex-col md:hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-h-full items-start justify-center">
-        {navigation.map((nav) => {
+      <ul className=" flex flex-col md:hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-h-full items-start justify-center">
+        {navigation.map((nav, index) => {
           return (
-            <li key={nav.id} className="hover:scale-110">
+            <motion.li key={nav.id} className="hover:scale-110"
+              initial={{ x: "-100%" ,opacity:0}}
+              animate={{ x: 0,opacity:1 }}
+              transition={{ duration: 0.5, delay: index * 0.07, type: "spring", stiffness: 200 }}
+            >
               <Link
                 to={nav.link}
                 className="flex items-center justify-center gap-3 "
@@ -81,15 +82,13 @@ const Navbar = ({ setShowNav }) => {
                 <img
                   src={Glasses}
                   alt="nav image"
-                  // width={80}
-                  // height={27}
                   className="mt-5 h-[auto] max-w-[100%] relative"
                 />
                 <h1 className="text-lg text-nowrap font-koneMono h-2 absolute">
                   {nav.name}
                 </h1>
               </Link>
-            </li>
+            </motion.li>
           );
         })}
       </ul>

@@ -12,8 +12,8 @@ const Events = () => {
     <main>
       <Header />
       <EventsBanner />
-      <div className="w-100 flex flex-col h-[100vh] z-[1000]">
-        <div className="w-full flex items-center justify-center flex-wrap " style={{ position: "sticky", top: "15%" }}>
+      <div className="w-100 flex flex-col h-[100vh] overflow-y-scroll sticky pt-[10%]  " >
+        <div className="w-full flex items-center justify-center flex-wrap  " >
           <button className={`tab  w-[100px] h-[30px] mx-[10px] mt-[12px] ${tab == "ALL" ? "active-tab" : ""}`} onClick={() => { setTab("ALL"); play() }}>ALL</button>
           <button className={`tab  w-[100px] h-[30px] mx-[10px] mt-[12px] ${tab == "CSE" ? "active-tab" : ""}`} onClick={() => { setTab("CSE"); play() }}>CSE</button>
           <button className={`tab  w-[100px] h-[30px] mx-[10px] mt-[12px] ${tab == "ECE" ? "active-tab" : ""}`} onClick={() => { setTab("ECE"); play() }}>ECE</button>
@@ -22,13 +22,15 @@ const Events = () => {
           <button className={`tab  w-[100px] h-[30px] mx-[10px] mt-[12px] ${tab == "CHEM" ? "active-tab" : ""}`} onClick={() => { setTab("CHEM"); play() }}>CHEM</button>
           <button className={`tab  w-[100px] h-[30px] mx-[10px] mt-[12px] ${tab == "CIVIL" ? "active-tab" : ""}`} onClick={() => { setTab("CIVIL"); play() }}>CIVIL</button>
         </div>
-        <div className="w-full flex items-center justify-around flex-wrap" style={{ position: "sticky", top: "21%" }}>
+        <div className="w-full  "  >
           {tab == "ALL" && (
             <>
-              <ETWSCard />
-              <ETWSCard />
-              <ETWSCard />
-              <ETWSCard />
+              <div className="w-full flex items-center justify-around gap-4 flex-wrap"  >
+                <ETWSCard className="mx-4" />
+                <ETWSCard className="mx-4" />
+                <ETWSCard className="mx-4" />
+
+              </div>
             </>
           )}
         </div>
