@@ -18,14 +18,13 @@ const Header = () => {
         <Link to="/">
           <img src={logo} alt="logo" className="h-8" />
         </Link>
-        <div className="w-full hidden md:flex items-center justify-around">
+        <div className="w-full hidden  md:flex items-center justify-around">
           {navigation.slice(0, 3).map((nav) => {
             return (
               <Link to={nav.link} key={nav.id}>
                 <h4
-                  className={`${
-                    currentPath === nav.link ? "text-primary" : "text-[#eee]"
-                  } mt-[0.3rem] font-namdhinggo text-[1rem] font-semibold`}
+                  className={` text-[17px] py-[3] ${currentPath === nav.link ? "text-primary" : "text-[#eee]"
+                    } mt-[0.3rem] font-namdhinggo text-[1rem] font-semibold`}
                 >
                   {nav.name.toUpperCase()}
                 </h4>
@@ -34,9 +33,8 @@ const Header = () => {
           })}
           <Link to="/register">
             <h4
-              className={`${
-                currentPath === "/register" ? "text-violet-500" : ""
-              } mt-[0.3rem] font-namdhinggo text-[1rem] font-semibold`}
+              className={`text-[17px] py-[3] ${currentPath === "/register" ? "text-violet-500" : ""
+                } mt-[0.3rem] font-namdhinggo text-[1rem] font-semibold`}
             >
               REGISTER
             </h4>

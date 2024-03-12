@@ -1,5 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import EventDetailsCard2 from "./pages/EventDetails/EventDetailsCard2";
+import TeamCard from "./components/Shared/TeamCard";
+import SwiperModule from "./components/swiper/Swiper";
 import {
   CoreTeam,
   Events,
@@ -9,7 +12,7 @@ import {
   Workshops,
   // EventUpdates,
   // WorkshopsDetails,
-  // EventDetails,
+  EventDetails,
   // Profile,
   // Referrals,
   // Speakers,
@@ -17,6 +20,8 @@ import {
   // Schedule,
   // About,
 } from "./pages";
+
+import EventDetailsCard from "./pages/EventDetails/EventDetailsCard";
 
 import { GoUpBtn, BackgroundGIF, Preloader } from "./components";
 import { useEffect, useState } from "react";
@@ -60,6 +65,9 @@ function App() {
               <Route path="/coreteam" element={<CoreTeam />} />
               <Route path="/webteam" element={<WebTeam />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/team" element={<TeamCard />} />
+              <Route path="/swiper" element={<SwiperModule />} />
+              <Route path="/eventdetails" element={<EventDetailsCard2 />} />
             </Routes>
           </main>
         </>

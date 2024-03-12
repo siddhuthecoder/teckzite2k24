@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         namdhinggo: ["Namdhinggo", "sans-serif"],
         koneMono: ["Kode Mono", "monospace"],
+        rog: ['ROG', 'sans-serif'],
       },
     },
   },
