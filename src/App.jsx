@@ -28,10 +28,10 @@ import { useEffect, useState } from "react";
 import Footer from "./components/Shared/Footer";
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 5000);
+    setTimeout(() => setLoading(false), 2500);
   }, []);
 
   return (

@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <div className="bottom_container">
+    <div className="footer_container">
       <footer className="h-full w-full flex items-center justify-center">
-        <div>CopyRight &copy; RGUKT,Nuzvid</div>
+        <div>Copyright &copy; RGUKT,Nuzvid</div>
       </footer>
     </div>
   );

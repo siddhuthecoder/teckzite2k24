@@ -276,7 +276,7 @@ select option {
 }
 
 /* Footer */
-.bottom_container {
+.footer_container {
   height: 60px;
   position: fixed;
   bottom: 0;
@@ -286,8 +286,28 @@ select option {
   background-size: auto 60px;
 }
 @media (max-width: 768px) {
-  .bottom_container {
+  .footer_container {
     height: 40px;
     background-size: auto 40px;
+  }
+}
+
+/* Header */
+.header_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: url("../header2.png") no-repeat top center fixed;
+  height: 70px;
+  background-size: auto 70px;
+}
+
+@media (max-width: 768px) {
+  .header_container {
+    height: 80px;
+    background: url("../header.png") no-repeat top center fixed;
+    background-size: 100% 80px;
   }
 }
