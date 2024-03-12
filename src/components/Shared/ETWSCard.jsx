@@ -1,5 +1,8 @@
 import React, { useRef, useState } from "react";
 import useSound from "use-sound";
+import TabButton from "../button/TabButton";
+import { motion } from 'framer-motion'
+import './button.css'
 
 const ETWSCard = () => {
   const [play] = useSound("./click.wav");
@@ -10,6 +13,7 @@ const ETWSCard = () => {
       onMouseLeave={() => {
         setIsHover(false);
       }}
+      onClick={play}
     >
       <img
         src="./events_card.png"
@@ -17,31 +21,30 @@ const ETWSCard = () => {
         onMouseEnter={() => setIsHover(true)}
         className={`bg-[url("./sid.png")] overflow-clip`}
       />
-      <div className="absolute bottom-12 w-full text-left">
-        <h2 className="font-bold text-2xl w-[88%] m-auto">eventname</h2>
-        <p className="text-base w-[88%] m-auto">about event</p>
-        <div className="relative min-h-[30px] text-center flex w-full">
+      <div className="absolute flex w-full bottom-12 w-full text-left">
+        <TabButton name="EVENT " />
+        {/* <div className="relative min-h-[30px] text-center flex w-full">
           <button
             onClick={play}
-            className={`absolute border-2 p-1 rounded-xl hover:bg-[#1f22e4] border-[#4c4ff4] left-8 ${
-              isHover
-                ? "visible -bottom-5 ease-in duration-200"
-                : "hidden -bottom-6"
-            } `}
+            className={`absolute  btn-glow border-2 p-1 rounded-xl hover:bg-[#1f22e4] border-[#4c4ff4] left-8 ${isHover
+              ? "visible  ease-in duration-200"
+              : "hidden   "
+              } `}
+            style={{ width: "100px", height: "40px" }}
           >
             Button 1
           </button>
           <button
-            className={`absolute border-2 p-1 rounded-xl hover:bg-[#1f22e4] border-[#4c4ff4] right-9 ${
-              isHover
-                ? "visible -bottom-5 ease-in duration-200"
-                : "hidden -bottom-6"
-            }`}
+            onClick={play}
+            className={`absolute  btn-glow mx-2 border-2 p-1 rounded-xl hover:bg-[#1f22e4] border-[#4c4ff4] left-8 ${isHover
+              ? "visible  ease-in duration-200"
+              : "hidden   "
+              } `}
+            style={{ width: "100px", height: "40px" }}
           >
-            {" "}
-            Button 2{" "}
+            Button 2
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

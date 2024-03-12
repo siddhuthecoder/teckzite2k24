@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import VantaBackground from "./VantaBackground ";
 import logo from "../../assets/logo.png";
+import Glasses from '../../assets/navbar/vr_glasses.png'
 
 //eslint-disable-next-line
 const Navbar = ({ setShowNav }) => {
@@ -31,19 +32,20 @@ const Navbar = ({ setShowNav }) => {
       <ul className="animate-fade hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white w-full max-w-[1200px] items-center justify-around">
         {navigation.map((nav) => {
           return (
-            <li key={nav.id} className="odd:mt-16 nav_heading">
+            <li key={nav.id} className="odd:mt-[200px] nav_heading">
               <Link
                 to={nav.link}
-                className="flex flex-col gap-0 items-center justify-center hover:scale-125 cursor-pointer h-[auto]"
+                className="flex flex-col gap-0 items-center justify-center hover:scale-125 cursor-pointer h-[auto] relative"
               >
-                <h1 className="text-2xl text-nowrap font-koneMono h-2 relative">
+                <h1 className="text-[20px] text-nowrap pt-[10px] top-[20px] font-koneMono h-2 absolute">
                   {nav.name}
                 </h1>
                 <img
-                  src={nav_img}
+                  src={Glasses}
                   alt="nav image"
-                  width={60}
-                  height={42}
+                  style={{ transitionDuration: "0.5s" }}
+                  // width={60}
+                  // height={42}
                   className="mt-0 h-[auto] max-w-[100%]"
                 />
               </Link>
@@ -53,16 +55,16 @@ const Navbar = ({ setShowNav }) => {
         <li className="odd:mt-16 nav_heading">
           <Link
             to="/register"
-            className="flex flex-col gap-0 items-center justify-center hover:scale-125 cursor-pointer h-[auto]"
+            className="flex flex-col gap-0 items-center justify-center hover:scale-125 cursor-pointer h-[auto] relative"
           >
-            <h1 className="text-2xl text-nowrap font-koneMono h-2 relative">
+            <h1 className="text-[20px]  text-nowrap  pt-[10px] top-[20px] font-koneMono h-2 absolute">
               Register
             </h1>
             <img
-              src={nav_img}
+              src={Glasses}
               alt="nav image"
-              width={60}
-              height={42}
+              // width={60}
+              // height={42}
               className="mt-0 h-[auto] max-w-[100%]"
             />
           </Link>
@@ -74,16 +76,16 @@ const Navbar = ({ setShowNav }) => {
             <li key={nav.id} className="hover:scale-110">
               <Link
                 to={nav.link}
-                className="flex items-center justify-center gap-3"
+                className="flex items-center justify-center gap-3 "
               >
                 <img
-                  src={nav_img_sm}
+                  src={Glasses}
                   alt="nav image"
-                  width={80}
-                  height={27}
-                  className="mt-5 h-[auto] max-w-[100%]"
+                  // width={80}
+                  // height={27}
+                  className="mt-5 h-[auto] max-w-[100%] relative"
                 />
-                <h1 className="text-lg text-nowrap font-koneMono h-2 relative">
+                <h1 className="text-lg text-nowrap font-koneMono h-2 absolute">
                   {nav.name}
                 </h1>
               </Link>
