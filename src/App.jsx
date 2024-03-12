@@ -12,7 +12,7 @@ import {
   Workshops,
   // EventUpdates,
   // WorkshopsDetails,
-  EventDetails,
+  // EventDetails,
   // Profile,
   // Referrals,
   // Speakers,
@@ -21,10 +21,11 @@ import {
   // About,
 } from "./pages";
 
-import EventDetailsCard from "./pages/EventDetails/EventDetailsCard";
+// import EventDetailsCard from "./pages/EventDetails/EventDetailsCard";
 
 import { GoUpBtn, BackgroundGIF, Preloader } from "./components";
 import { useEffect, useState } from "react";
+import Footer from "./components/Shared/Footer";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -69,6 +70,7 @@ function App() {
               <Route path="/swiper" element={<SwiperModule />} />
               <Route path="/eventdetails" element={<EventDetailsCard2 />} />
             </Routes>
+            <Footer />
           </main>
         </>
       )}
