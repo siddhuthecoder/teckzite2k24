@@ -22,11 +22,11 @@ const Home = () => {
           <div className="absolute bottom-0 left-0 min-h-[200px] w-full ">
             <img src={man} alt="" className="absolute scale-[2.5] bottom-[70%] md:scale-[1.5] md:bottom-[50%] lg:scale-[1] lg:bottom-[0%]" style={{ transform: "" }} />
             <div className="w-full">
-              <div className="glitch text-center text-[30px] ps-[10px] mt-[-24%]  sm:text-[50px] sm:ps-[10px] sm:mt-[-30%] md:text-[50px] md:ps-[10px] md:mt-[-23%]  lg:text-[50px] lg:ps-[10px] lg:mt-[-18%] w-full " data-glitch="TECKZITE" style={{}}>TECKZITE</div>
+              <div className="glitch text-center text-[40px] ps-[10px] mt-[-28%]  sm:text-[28px] sm:ps-[10px] sm:mt-[-40%] md:text-[70px] md:ps-[10px] md:mt-[-23%]  lg:text-[75px] lg:ps-[10px] lg:mt-[-23%] w-full " data-glitch="TECKZITE" style={{}}>TECKZITE</div>
             </div>
-            <div className="w-full ">
+{/*             <div className="w-full ">
               <div className="glitch fixed bottom w-full text-center text-[30px] bottom-[10%] " data-glitch="META VERSE" style={{}}>META VERSE</div>
-            </div>
+            </div> */}
           </div>  
         </div>
         
