@@ -1,6 +1,6 @@
 import Header from "../../components/Header/Header";
 import video from "../../assets/home/banner.mp4";
-import man from "../../assets/home/man.png";
+import man from "../../assets/home/man.webp";
 // import { motion } from 'framer-motion'
 import "../../css/glitch.scss";
 import "../../css/glitch2.scss";
@@ -23,7 +23,6 @@ const Home = () => {
               src={man}
               alt=""
               className="absolute bottom-0 min-w-[1000px] h-[90vh] md:scale-[1.5] lg:scale-[1.25] left-1/2 transform -translate-x-[51%]"
-              style={{ transform: "" }}
             />
             <div className="w-full text-center absolute bottom-[-10%] h-[90vh]">
               <div
