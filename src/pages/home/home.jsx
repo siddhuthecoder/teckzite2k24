@@ -22,7 +22,7 @@ const Home = () => {
             <img
               src={man}
               alt=""
-              className="absolute bottom-0 min-w-[1000px] h-[90vh] md:scale-[1.5] lg:scale-[1.25] left-1/2 transform -translate-x-[51%]"
+              className="absolute bottom-0 min-w-[1000px] scale-100 h-[90vh] left-1/2 transform -translate-x-[51%]"
             />
             <div className="w-full text-center absolute bottom-[-10%] h-[90vh]">
               <div
