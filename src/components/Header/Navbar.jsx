@@ -17,11 +17,11 @@ const Navbar = ({ setShowNav }) => {
       <VantaBackground />
       <div
         onClick={() => setShowNav(false)}
-        className="absolute right-[2.4rem] top-[2.4rem] cursor-pointer"
+        className="absolute right-[2.4rem] z-30 top-[2.4rem] cursor-pointer"
       >
         <FaTimes size={32} />
       </div>
-      <div className="absolute left-[2.4rem] top-[2.4rem] cursor-pointer">
+      <div className="absolute left-[2.4rem] z-30 top-[2.4rem] cursor-pointer">
         <Link
           to="/"
           className="flex items-center gap-2"
@@ -33,7 +33,7 @@ const Navbar = ({ setShowNav }) => {
           </h1>
         </Link>
       </div>
-      <ul className="animate-fade hidden md:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white w-full max-w-[1200px] items-center justify-around">
+      <ul className="animate-fade hidden lg:flex z-10 absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white w-full max-w-[1200px] items-center justify-around">
         {navigation.map((nav) => {
           return (
             <li
@@ -47,7 +47,7 @@ const Navbar = ({ setShowNav }) => {
                 onClick={() => setShowNav(false)}
                 className="flex flex-col gap-0 items-center justify-center cursor-pointer h-[auto] relative"
               >
-                <h1 className="text-[20px] text-nowrap pt-[18px] top-[20px] font-koneMono h-2 absolute">
+                <h1 className="text-[20px] pt-2 text-nowra top-[20px] font-koneMono h-2 absolute">
                   {nav.name}
                 </h1>
                 <img
@@ -56,14 +56,14 @@ const Navbar = ({ setShowNav }) => {
                   style={{ transitionDuration: "0.5s" }}
                   // width={60}
                   // height={42}
-                  className="mt-0 h-[auto] md:max-w-[100%]"
+                  className="mt-0 h-[auto] md:max-w-[120%]"
                 />
               </Link>
             </li>
           );
         })}
         <li
-          className={`odd:mt-16 nav_heading ${
+          className={`odd:mt-[200px] nav_heading ${
             pathname === "/register" && "active"
           }`}
         >
@@ -72,18 +72,18 @@ const Navbar = ({ setShowNav }) => {
             onClick={() => setShowNav(false)}
             className="flex flex-col gap-0 items-center justify-center cursor-pointer h-[auto] relative"
           >
-            <h1 className="text-[20px]  text-nowrap  pt-[18px] top-[20px] font-koneMono h-2 absolute">
+            <h1 className="text-[20px] pt-2  text-nowrap top-[20px] font-koneMono h-2 absolute">
               Register
             </h1>
             <img
               src={Glasses}
               alt="nav image"
-              className="mt-0 h-[auto] md:max-w-[100%]"
+              className="mt-0 h-[auto] md:max-w-[120%]"
             />
           </Link>
         </li>
       </ul>
-      <ul className=" flex flex-col md:hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[100vh] w-full pb-20 items-center scroll_in">
+      <ul className=" flex flex-col lg:hidden z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[75vh] w-full items-center scroll_in">
         {navigation.map((nav, index) => {
           return (
             <motion.li
@@ -100,7 +100,7 @@ const Navbar = ({ setShowNav }) => {
             >
               <Link
                 to={nav.link}
-                className="flex items-center justify-center gap-3 "
+                className="flex items-center justify-center gap-3"
               >
                 <img
                   src={Glasses}
@@ -114,6 +114,31 @@ const Navbar = ({ setShowNav }) => {
             </motion.li>
           );
         })}
+        <motion.li
+          className="hover:scale-110"
+          initial={{ x: "-100%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: 9 * 0.07,
+            type: "spring",
+            stiffness: 200,
+          }}
+        >
+          <Link
+            to="/register"
+            className="flex items-center justify-center gap-3"
+          >
+            <img
+              src={Glasses}
+              alt="nav image"
+              className="mt-3 h-[auto] min-w-[170px] max-md:h-[90px] relative"
+            />
+            <h1 className="text-lg text-nowrap pb-6 font-koneMono h-2 absolute">
+              Register
+            </h1>
+          </Link>
+        </motion.li>
       </ul>
     </div>
   );

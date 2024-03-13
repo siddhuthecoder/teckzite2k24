@@ -32,6 +32,17 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const handleSound = () => {
+      const audio = new Audio("./click.wav");
+      audio.play();
+    };
+    document.body.addEventListener("click", handleSound);
+    return () => {
+      document.body.removeEventListener("click", handleSound);
+    };
+  }, []);
+
+  useEffect(() => {
     setTimeout(() => setLoading(false), 5000);
   }, []);
 

@@ -13,18 +13,33 @@ export const navigation = [
   },
   {
     id: 3,
+    name: "About",
+    link: "/about",
+  },
+  {
+    id: 4,
     name: "Core Team",
     link: "/coreteam",
   },
   {
-    id: 4,
+    id: 5,
     name: "Web Team",
     link: "/webteam",
   },
   {
-    id: 5,
-    name: "About",
-    link: "/about",
+    id: 6,
+    name: "Referrals",
+    link: "/referrals",
+  },
+  {
+    id: 7,
+    name: "Profile",
+    link: "/profile",
+  },
+  {
+    id: 7,
+    name: "Contact",
+    link: "/contact",
   },
 ];
 
