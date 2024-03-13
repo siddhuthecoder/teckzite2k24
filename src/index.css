@@ -316,3 +316,10 @@ select option {
     background-size: 100% 80px;
   }
 }
+
+.scroll_in {
+  overflow-y: scroll;
+}
+.scroll_in::--webkit-scrollbar {
+  display: none;
+}

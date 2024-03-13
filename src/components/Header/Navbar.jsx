@@ -83,7 +83,7 @@ const Navbar = ({ setShowNav }) => {
           </Link>
         </li>
       </ul>
-      <ul className=" flex flex-col md:hidden absolute pt-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-h-[90vh] mt-[10vh] items-start justify-center">
+      <ul className=" flex flex-col md:hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[100vh] w-full pb-20 items-center scroll_in">
         {navigation.map((nav, index) => {
           return (
             <motion.li
