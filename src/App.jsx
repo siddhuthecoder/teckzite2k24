@@ -20,6 +20,7 @@ import {
   // Schedule,
   // About,
 } from "./pages";
+import Header from "./components/Header/Header";
 
 // import EventDetailsCard from "./pages/EventDetails/EventDetailsCard";
 
@@ -57,6 +58,7 @@ function App() {
         <>
           <Toaster />
           <main className="animate-show">
+           <Header />
             <GoUpBtn />
             <BackgroundGIF />
             <Routes>

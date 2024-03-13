@@ -3,7 +3,7 @@
 // import { VscThreeBars } from "react-icons/vsc";
 // import { navigation } from "../../constants";
 // import Navbar from "./Navbar";
-// import { useState } from "react";
+import { useState } from "react";
 // import "./Header.css";
 
 // const Header = () => {
@@ -58,9 +58,12 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdPerson } from "react-icons/io";
+import Navbar from "./Navbar";
 
 const Header = () => {
   const pathName = window.location.pathname;
+  const [showNav, setShowNav] = useState(false);
+
   return (
     <div className="header_container">
       <header className="w-full relative h-full">
@@ -68,7 +71,9 @@ const Header = () => {
           className="absolute top-[35%] -translate-y-1/2 left-0 px-4 flex items-center gap-4"
           style={{ verticalAlign: true }}
         >
-          <GiHamburgerMenu size={22} />
+            <div className="cursor-pointer" onClick={() => setShowNav((prev) => !prev)}      >
+            <GiHamburgerMenu size={22}  />
+            </div>
           <div className="breadcrumbs max-md:hidden">
             <h1 className="text-base font-namdhinggo">
               {pathName === "/"
@@ -92,6 +97,7 @@ const Header = () => {
           </Link>
         </div>
       </header>
+      {showNav && <Navbar setShowNav={setShowNav} />}
     </div>
   );
 };
