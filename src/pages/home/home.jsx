@@ -22,11 +22,11 @@ const Home = () => {
             <img
               src={man}
               alt=""
-              className="absolute bottom-0 min-w-[1000px] scale-100 h-[90vh] left-1/2 transform -translate-x-[51%]"
+              className="absolute bottom-0 min-w-[840px] scale-100 h-[90vh] max-h-[1000px] left-1/2 transform -translate-x-[52%] overflow-hidden"
             />
             <div className="w-full text-center absolute bottom-[-10%] h-[90vh]">
               <div
-                className="glitch text-[40px] sm:text-[28px] md:text-[50px] lg:text-[65px] mt-[22vh] max-sm:mt-[27vh]"
+                className="glitch text-[72px] max-lg:text-[45px] lg:text-[50px] mt-[26vh]"
                 data-glitch="TECKZITE"
               >
                 TECKZITE

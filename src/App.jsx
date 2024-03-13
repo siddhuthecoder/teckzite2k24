@@ -24,7 +24,7 @@ import Header from "./components/Header/Header";
 
 // import EventDetailsCard from "./pages/EventDetails/EventDetailsCard";
 
-import { GoUpBtn, Preloader } from "./components";
+import { Preloader } from "./components";
 import { useEffect, useState } from "react";
 import Footer from "./components/Shared/Footer";
 import BackgroundAnimation from "./components/Shared/BackgroundAnimation";
@@ -71,7 +71,7 @@ function App() {
           <Toaster />
           <main className="animate-show">
             <Header />
-            <GoUpBtn />
+            {/* <GoUpBtn /> */}
             {/* <BackgroundGIF /> */}
             <BackgroundAnimation />
             <Routes>

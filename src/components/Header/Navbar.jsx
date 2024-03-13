@@ -56,7 +56,7 @@ const Navbar = ({ setShowNav }) => {
                   style={{ transitionDuration: "0.5s" }}
                   // width={60}
                   // height={42}
-                  className="mt-0 h-[auto] md:max-w-[120%]"
+                  className="mt-0 h-[auto] lg:max-w-[120%]"
                 />
               </Link>
             </li>
@@ -78,7 +78,7 @@ const Navbar = ({ setShowNav }) => {
             <img
               src={Glasses}
               alt="nav image"
-              className="mt-0 h-[auto] md:max-w-[120%]"
+              className="mt-0 h-[auto] lg:max-w-[120%]"
             />
           </Link>
         </li>
@@ -105,7 +105,7 @@ const Navbar = ({ setShowNav }) => {
                 <img
                   src={Glasses}
                   alt="nav image"
-                  className="mt-3 h-[auto] min-w-[170px] max-md:h-[90px] relative"
+                  className="mt-3 h-[auto] min-w-[170px] max-lg:h-[90px] relative"
                 />
                 <h1 className="text-lg text-nowrap pb-6 font-koneMono h-2 absolute">
                   {nav.name}
@@ -132,7 +132,7 @@ const Navbar = ({ setShowNav }) => {
             <img
               src={Glasses}
               alt="nav image"
-              className="mt-3 h-[auto] min-w-[170px] max-md:h-[90px] relative"
+              className="mt-3 h-[auto] min-w-[170px] max-lg:h-[90px] relative"
             />
             <h1 className="text-lg text-nowrap pb-6 font-koneMono h-2 absolute">
               Register
