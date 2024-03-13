@@ -72,8 +72,13 @@ select option {
   animation: fade 0.6s ease-in-out;
 }
 
-.nav_heading:hover h1 {
+.nav_heading:hover h1,
+.nav_heading.active h1 {
   text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+}
+.nav_heading:hover,
+.nav_heading.active {
+  transform: scale(1.05);
 }
 
 @keyframes fade {
@@ -301,7 +306,7 @@ select option {
   z-index: 1000;
   background: url("../header2.png") no-repeat top center fixed;
   height: 70px;
-  background-size: auto 70px;
+  background-size: 100% 70px;
 }
 
 @media (max-width: 768px) {

@@ -24,7 +24,7 @@ import Header from "./components/Header/Header";
 
 // import EventDetailsCard from "./pages/EventDetails/EventDetailsCard";
 
-import { GoUpBtn, BackgroundGIF, Preloader } from "./components";
+import { GoUpBtn, Preloader } from "./components";
 import { useEffect, useState } from "react";
 import Footer from "./components/Shared/Footer";
 
@@ -32,7 +32,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2500);
+    setTimeout(() => setLoading(false), 5000);
   }, []);
 
   return (
@@ -58,9 +58,9 @@ function App() {
         <>
           <Toaster />
           <main className="animate-show">
-           <Header />
+            <Header />
             <GoUpBtn />
-            <BackgroundGIF />
+            {/* <BackgroundGIF /> */}
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/events" element={<Events />} />
