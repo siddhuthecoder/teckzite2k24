@@ -68,7 +68,7 @@ const Header = () => {
     <div className="header_container">
       <header className="w-full relative h-full">
         <div
-          className="absolute top-[35%] -translate-y-1/2 left-0 px-4 flex items-center gap-4"
+          className="absolute top-[35%] -translate-y-1/2 left-0 px-4 flex items-center gap-4 "
           style={{ verticalAlign: true }}
         >
             <div className="cursor-pointer" onClick={() => setShowNav((prev) => !prev)}      >
