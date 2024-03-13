@@ -52,6 +52,7 @@ const RegisterForm = () => {
     }
 
     // Handle form submission
+    alert("Registrations will be opened soon");
   };
 
   const handleNext = (e) => {
@@ -116,10 +117,10 @@ const RegisterForm = () => {
   };
 
   return (
-    <section className="z-30 w-full pt-[100px] pb-[20px]">
+    <section className="z-30 w-full pt-[80px] pb-[20px]">
       <form
         onSubmit={handleSubmit}
-        className="w-[90%] max-w-[380px] mx-auto mb-5 border border-primary rounded-md backdrop-filter backdrop-blur-lg px-3 py-2 flex justify-center items-center"
+        className="w-[90%] max-w-[420px] mx-auto mb-20 border border-primary rounded-md backdrop-filter backdrop-blur-lg px-3 py-2 flex justify-center items-center"
       >
         {!signIn && (
           <div className="my-16 mx-auto">
@@ -133,7 +134,7 @@ const RegisterForm = () => {
         )}
         {signIn && (
           <div className="py-2 w-full flex justify-center items-center flex-col">
-            <h4 className="font-semibold my-2 text-xl">Register</h4>
+            <h4 className="font-semibold mt-2 mb-4 text-xl">Register</h4>
             {!next && (
               <>
                 <div className="mb-3 w-[90%] grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -338,35 +339,35 @@ const RegisterForm = () => {
                 </div>
               </>
             )}
-            {error && <div className="w-[90%]">{error}</div>}
+            {error && <div className="w-[90%] text-red-500">{error}</div>}
             <div className="w-[90%] mt-2 flex items-end justify-between">
               {!next && (
                 <>
                   <div></div>
-                  <button
+                  <div
                     type="button"
-                    className="text-white bg-[rgba(152,65,255,0.8)] hover:bg-primary font-medium rounded-md text-base px-6 py-1.5 me-2 mb-2"
+                    className="text-white cursor-pointer bg-[rgba(152,65,255,0.8)] hover:bg-primary font-medium rounded-md text-base px-6 py-1.5 mb-2"
                     onClick={handleNext}
                   >
                     Next
-                  </button>
+                  </div>
                 </>
               )}
               {next && (
                 <>
-                  <button
+                  <div
                     type="button"
-                    className="text-white bg-[rgba(152,65,255,0.8)] hover:bg-primary font-medium rounded-md text-base px-6 py-1.5 me-2 mb-2"
+                    className="text-white cursor-pointer bg-[rgba(152,65,255,0.8)] hover:bg-primary font-medium rounded-md text-base px-6 py-1.5 me-2 mb-2"
                     onClick={() => setNext(false)}
                   >
                     Prev
-                  </button>
-                  <button
+                  </div>
+                  <div
                     type="submit"
-                    className="text-white bg-green-600 hover:bg-green-700 font-medium rounded-md text-base px-6 py-1.5 me-2 mb-2"
+                    className="text-white cursor-pointer bg-green-600 hover:bg-green-700 font-medium rounded-md text-base px-6 py-1.5 me-2 mb-2"
                   >
                     Submit
-                  </button>
+                  </div>
                 </>
               )}
             </div>

@@ -27,6 +27,7 @@ import Header from "./components/Header/Header";
 import { GoUpBtn, Preloader } from "./components";
 import { useEffect, useState } from "react";
 import Footer from "./components/Shared/Footer";
+import BackgroundAnimation from "./components/Shared/BackgroundAnimation";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -72,6 +73,7 @@ function App() {
             <Header />
             <GoUpBtn />
             {/* <BackgroundGIF /> */}
+            <BackgroundAnimation />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/events" element={<Events />} />
